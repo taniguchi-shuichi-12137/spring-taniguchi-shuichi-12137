@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+</head>
+
+<body>
+	
+	<!--入力フォー無：method：リクエストの種類　/　action：パス-->
+
+	<form method="post" action="/login">
+	<!--テキストボックスに名前を付けると、Javaで入力した値を受け取れるようになる-->	
+		User ID:
+			<input type="text" name="userId"/><br/>
+		
+		パスワード:
+			<input type="password" name="password" /><br/>
+		
+		<button>ログイン</button>
+	</form>
+</body>
+
+</html>
