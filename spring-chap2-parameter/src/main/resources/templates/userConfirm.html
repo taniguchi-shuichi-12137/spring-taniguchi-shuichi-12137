@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>登録確認</title>
+</head>
+
+<body>
+
+	<h1>登録確認</h1>
+
+	<table border="1">
+
+		<tr>
+
+			<th>名前</th>
+			<td th:text="${name}"></td>
+		</tr>
+		<tr>
+			<th>年齢</th>
+			<td th:text="${age}"></td>
+		</tr>
+
+		<tr>
+			<th>性別</th>
+			<td th:if="${gender == 1}">男</td>
+			<td th:if="${gender == 2}">女</td>
+			<td th:if="${gender != 1 && gender != 2}">選択しない</td>
+		</tr>
+		<tr>
+			<th>会社名</th>
+			<td th:text="${companyName}"></td>
+		</tr>
+		<tr>
+			<th>入社日</th>
+			<td th:text="${hireDate}"></td>
+		</tr>
+		<tr>
+			<th>趣味</th>
+			<td>
+				<th:block th:each="hobby : ${hobbyList}">
+					[[${hobby}]],
+				</th:block>
+			</td>
+		</tr>
+
+
+	</table>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ユーザー登録</title>
+</head>
+
+<body>
+
+	<h1>ユーザー登録</h1>
+	<!--エラー文の表示 :th:ifでerrListが存在する時だけ表示-->
+	<ul th:if="${errList != null}">
+		<!--List型の変数は、th:eachで拡張for文（１つ分の変数：配列）のようにして使う-->
+		<li th:each="error : ${errList}" th:text="${error}"></li>
+	</ul>
+
+	<form method="post" action="/userConfirm">
+
+		名前[必須]:
+		<input type="text" name="name" th:value="${name}" /><br />
+
+		年齢[必須]:
+		<input type="number" name="age" th:value="${age}" /><br />
+		<!--せいべつ：同一のラジオボタンはは同じ名前を付ける-->
+		性別：
+		<input type="radio" name="gender" value="1" th:checked="${gender == 1}" />男
+		<input type="radio" name="gender" value="2" th:checked="${gender == 2}" />女
+		<input type="radio" name="gender" value="9" th:checked="${gender == 9}" />選択しない
+
+		<br />
+
+		会社名：
+		<input type="name" name="companyName" th:value="${companyName}"><br />
+
+		入社日：
+		<input type="date" name="hireDate" th:value="${hireDate}"><br />
+
+		<!--趣味：複数選択のものはcheckbox、nameはすべて同じ、valueが違う-->
+		趣味：
+		<input type="checkbox" name="hobby" value="ゲーム" th:checked="${hobbyList != null && hobbyList.contains('ゲーム')}" />ゲーム
+		<input type="checkbox" name="hobby" value="読書"   th:checked="${hobbyList != null && hobbyList.contains('読書')}" /> 読書
+		<input type="checkbox" name="hobby" value="料理"   th:checked="${hobbyList != null && hobbyList.contains('料理')}" />料理
+
+		<br />
+
+		<button>確認</button>
+
+	</form>
+
+</body>
+
+</html>
