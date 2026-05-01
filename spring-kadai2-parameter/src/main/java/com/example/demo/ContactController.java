@@ -21,7 +21,7 @@ public class ContactController {
 
 	@PostMapping("/contact")
 	public String contact(
-			@RequestParam(name = "name") String name,
+			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "email", defaultValue = "") String email,
 			Model model) {
 
@@ -31,15 +31,20 @@ public class ContactController {
 
 			errList.add("名前は必須です");
 
+		} else if (name.length() > 20) {
+			errList.add("名前は20文字以内で入力してください");
 		}
+		if (email.length() == 0) {
+			errList.add("メールアドレスは必須です");
 
-		model.addAttribute("name", name);
-		model.addAttribute("email", email);
+		}
 
 		if (errList.size() > 0) {
 			model.addAttribute("errList", errList);
 			return "contactForm";
 		}
+		model.addAttribute("name", name);
+		model.addAttribute("email", email);
 
 		return "contactResult";
 	}

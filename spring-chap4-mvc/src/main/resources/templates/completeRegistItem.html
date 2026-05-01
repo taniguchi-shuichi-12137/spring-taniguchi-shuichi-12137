@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登録完了</title>
+</head>
+<body>
+<h1>登録完了</h1>
+<table border="1">
+	<tr>
+		<th>商品名</th>
+		<td th:text="${item.name}"></td>
+	</tr>
+	<tr>
+		<th>価格</th>
+		<td th:text="${item.price}"></td>
+	</tr>
+	<tr>
+		<th>情報</th>
+		<td th:text="${item.info}"></td>
+	</tr>
+</table>
+</body>
+</html>

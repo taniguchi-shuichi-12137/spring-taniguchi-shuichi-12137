@@ -7,9 +7,23 @@
 <body>
 	
 	<h1>研修お問い合わせ</h1>
+	
+	
+	<ul th:if="${errList != null}">
+		
+		<li th:each="error : ${errList}" th:text="${error}"></li>
+	</ul>
+	
 	<form method="post" action="/contact">
+		
 	
 	<table border="1">
+		<tr>
+			<th>種別</th>
+			<td>
+				<input type="rdio" name="gerne">
+			</td>
+		</tr>
 		<tr>
 			<th>お名前[必須]</th>
 			<td>
@@ -19,7 +33,7 @@
 		<tr>
 			<th>メールアドレス[必須]</th>
 			<td>
-				<input type="email" name="email">
+				<input type="text" name="email">
 			</td>
 		</tr>
 	</table>
