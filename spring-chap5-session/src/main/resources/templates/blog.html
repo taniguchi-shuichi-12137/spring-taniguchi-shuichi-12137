@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ブログ</title>
+</head>
+<body>
+	<h1>ブログ</h1>
+	
+	<p>こんにちは,[[${@account.name}]]さん</p>
+	
+	<!--投稿フォーム-->
+	<form action="/blog" method="post">
+		<table border="1">
+			<tr>
+				<th>タイトル</th>
+				<td>
+					<input type="text" name="title">
+				</td>
+			</tr>
+			<tr>
+				<th>内容</th>
+				<td>
+					<textarea name="content"></textarea>
+				</td>
+			</tr>
+		</table>
+		<button>投稿</button>
+	</form>
+	<!--区切り線-->
+	<hr/>
+	<!--投稿一覧-->
+	<table border="1" style="width: 100%;">
+		
+		<tr>
+			<th>タイトル</th>
+			<th>投稿者</th>
+			<th>投稿日時</th>
+			<th>内容</th>
+		</tr>
+		
+		<!--一覧-->
+		<tr th:each="post : ${@postList.list}">
+			<td th:text="${post.title}"></td>
+			<td th:text="${post.name}"></td>
+			<td th:text="${post.createAt}"></td>
+			<td th:text="${post.content}"></td>
+		</tr>
+	</table>
+	
+	<a href="/logout">ログアウト</a>
+
+</body>
+</html>
