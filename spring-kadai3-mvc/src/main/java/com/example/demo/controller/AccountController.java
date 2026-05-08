@@ -63,15 +63,15 @@ public class AccountController {
 
 	}
 	
-	@PostMapping("/account")
-	public String store(
-			@RequestParam(name ="name")String name,
-			@RequestParam(name ="email")String email,
-			@RequestParam(name ="password")String password,
-			Model model) {
+//	@PostMapping("/account")
+	//public String store(
+			//@RequestParam(name ="name")String name,
+		//	@RequestParam(name ="email")String email,
+		//	@RequestParam(name ="password")String password,
+		//	Model model) {
 		
 		Account account = new Account();
 		
 	}
 
-}
+//}

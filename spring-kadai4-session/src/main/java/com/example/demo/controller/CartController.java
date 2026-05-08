@@ -15,7 +15,7 @@ public class CartController {
 	
 	private final Cart cart;
 	
-	private HttpSession session;
+	private final HttpSession session;
 	
 	public CartController(Cart cart, HttpSession session) {
 		
@@ -32,7 +32,7 @@ public class CartController {
 		
 	}
 	
-	@PostMapping({"/cart","/add"})
+	@PostMapping({"/cart/add"})
 	public String addCart(
 			
 			@RequestParam(name="name") String name,
