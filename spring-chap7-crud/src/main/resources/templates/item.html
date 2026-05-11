@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>商品一覧</title>
+</head>
+
+<body>
+	<!--見出し-->
+	<h1>商品一覧</h1>
+	<!--テーブル-->
+	<table border="1">
+		<!--ヘッダー行-->
+		<tr>
+
+			<th>商品ID</th>
+			<th>カテゴリーID</th>
+			<th>商品名</th>
+			<th>価格</th>
+			<th></th>
+
+		</tr>
+
+		<!--取得したitemテーブルのでーたを取得-->
+		<tr th:each="item : ${itemList}">
+			<td th:text="${item.id}"></td>
+			<td th:text="${item.categoryId}"></td>
+			<td th:text="${item.name}"></td>
+			<td th:text="${item.price}"></td>
+			<!--更新ボタン（リンク）-->
+			<td>
+				<form th:action="|/edit/${item.id}|" method="get">
+					<button>更新</button>
+				</form>
+			</td>
+			<!--削除ボタン-->
+			<td>
+				<form th:action="|/delete/${item.id}|" method="post">
+					<button>削除</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+	
+	<a href="/add">新規作成</a>
+
+</body>
+
+</html>

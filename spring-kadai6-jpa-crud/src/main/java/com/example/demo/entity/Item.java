@@ -8,67 +8,54 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="items")
+@Table(name = "items")
 public class Item {
+
 	
-	 // id integer not null
-	  //, category_id integer
-	 // , name text
-	 // , price integer
-	//主キー項目には「@id」と「@GeneratedValue」をつける
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //データ作成時にIDの採番をどうやるのかの設定
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="category_id")
+	@Column(name = "category_id")
 	private Integer categoryId;
 	
-	@Column(name="name")
+	@Column(name = "name")
 	private String name;
 	
-	@Column(name="price")
+	@Column(name = "price")
 	private Integer price;
-	
 	
 	public Item() {
 		
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public Integer getCategoryId() {
 		return categoryId;
 	}
-
 
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public Integer getPrice() {
 		return price;
 	}
-
 
 	public void setPrice(Integer price) {
 		this.price = price;
