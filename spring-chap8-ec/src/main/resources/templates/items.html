@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品一覧</title>
+</head>
+<body>
+	
+	<!--ヘッダー-->
+	<header th:replace="header"></header>
+	
+	<!--メインコンテンツ-->
+	<main>
+		<!--商品一覧-->
+		<table border="1">
+			<!--ヘッダー行-->
+			<tr>
+				<th>商品ID</th>
+				<th>商品名</th>
+				<th>価格</th>
+				<th></th>
+			</tr>
+			
+			<tr th:each="item : ${itemList}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+				<td>
+					<!--カートに追加ボタン-->
+					<form action="/addCart" method="post">
+						<input type="hidden"name="itemId" th:value="${item.id}" />
+						<button>カートに追加</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		
+	</main>
+	
+	<!--フッター-->
+	<footer>
+		@株式会社アナザーウェア
+	</footer>
+
+</body>
+</html>

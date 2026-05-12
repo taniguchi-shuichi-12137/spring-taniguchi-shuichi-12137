@@ -17,6 +17,13 @@
 			<td th:text="${item.id}"></td>
 			<td th:text="${item.name}"></td>
 			<td th:text="${item.price}"></td>
+			
+			<td>
+				<form th:action="|/edit/${item.id}|" method="get">
+					<button>更新</button>
+				</form>
+			</td>
+			
 		</tr>
 		
 	</table>

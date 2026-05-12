@@ -85,7 +85,6 @@ public class ItemContronller {
 
 		//4.更新画面(editItem.html)を表示
 
-		//editItem.htmlを表示
 		return "editItem";
 	}
 
@@ -108,22 +107,22 @@ public class ItemContronller {
 			return "redirect:/";
 		}
 
-		//3.取得したでーたからitemオブジェクトを取得
+		//3.取得したデータからitemオブジェクトを取得
 		Item item = itemData.get();
 
-		//4.値を
+		//4.値をItemオブジェクトに登録(idはnullでない状態　※取得したデータにはidが入ってるから)
 		item.setCategoryId(categotyId);
 		item.setName(name);
 		item.setPrice(price);
 
-		//3.リポジトリーを通じてDBに更新
+		//5.リポジトリーを通じてDBに更新(idがnull出ない場合、更新)
 
 		itemRepository.save(item);
 
 		//処理が終わったら一覧画面へリダイレクト
 
 		return "redirect:/";
-	} 
+	}
 
 	//削除処理
 	@PostMapping("/delete/{id}")
