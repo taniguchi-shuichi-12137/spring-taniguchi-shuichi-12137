@@ -110,7 +110,8 @@ public class ItemContronller {
 		//3.取得したデータからitemオブジェクトを取得
 		Item item = itemData.get();
 
-		//4.値をItemオブジェクトに登録(idはnullでない状態　※取得したデータにはidが入ってるから)
+		//4.値をItemオブジェクトに登録(idはnullでない状態　※取得したデータにはidが入ってるから
+		//)
 		item.setCategoryId(categotyId);
 		item.setName(name);
 		item.setPrice(price);

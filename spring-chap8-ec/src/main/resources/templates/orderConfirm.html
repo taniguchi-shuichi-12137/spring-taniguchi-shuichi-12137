@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>注文 | 確認画面</title>
+</head>
+
+<body>
+
+	<!--ヘッダー-->
+	<header th:replace="header"></header>
+	<!--メイン-->
+	<main>
+
+
+		<!--カートの情報-->
+		<section th:replace="cartItem"></section>
+
+		<!--区切り線-->
+		<hr />
+
+		<!--顧客情報-->
+		<table>
+			<tr>
+				<th>お名前</th>
+				<td th:text="${name}"></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td th:text="${addres}"></td>
+			</tr>
+			<tr>
+				<th>電話番号</th>
+				<td th:text="${tel}"></td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td th:text="${email}"></td>
+			</tr>
+
+		</table>
+		<!--注文するボタン-->
+
+		<form action="/orderConfirm" method="post">
+			<!--隠しパラメータで、顧客情報をJavaのorderメソッドに送る-->
+			<input type="hidden" name="name" th:value="${name}" />
+			<input type="hidden" name="addres" th:value="${addres}" />
+			<input type="hidden" name="tel" th:value="${tel}" />
+			<input type="hidden" name="email" th:value="${email}" />
+
+			<button>注文する</button>
+
+		</form>
+
+	</main>
+	<!--フッター-->
+	<footer th:repace="footer"></footer>
+</body>
+
+</html>

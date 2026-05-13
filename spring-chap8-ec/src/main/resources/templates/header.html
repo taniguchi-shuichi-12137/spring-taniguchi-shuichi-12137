@@ -6,6 +6,9 @@
 	<!--カートを見るリンク-->
 	<a href="/cart">カートを見る</a>
 	
+	<p th:if="${@account.name != null}">ようこそ[[${@account.name}]]さん</p>
+	
+	<a href="/login" th:if="${@account.name == null}">ログイン</a>
 	<!--CSS読み込み-->
 	<link rel="stylesheet" href="/style.css" />
 </header>

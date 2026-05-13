@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>注文 | 顧客情報入力</title>
+</head>
+
+<body>
+
+	<!--ヘッダー-->
+	<header th:replace="header"></header>
+
+	<!--メイン-->
+	<main>
+
+		<!--カートの中身の情報-->
+		<section th:replace="cartItem"></section>
+
+		<!--区切り線-->
+		<hr />
+
+		<!--顧客情報の入力-->
+		<h3>顧客情報</h3>
+
+		<form action="/order/confirm" method="post">
+			<table>
+				<tr>
+					<th>お名前</th>
+					<td>
+						<input type="text" name="name" />
+					</td>
+				</tr>
+				<tr>
+					<th>住所</th>
+					<td>
+						<input type="text" name="addres" />
+					</td>
+				</tr>
+					<th>電話番号</th>
+					<td>
+						<input type="number" name="tel" />
+					</td>
+				<tr>
+					<th>メールアドレス</th>
+					<td>
+						<input type="text" name="email" />
+					</td>
+				</tr>
+				
+
+			</table>
+
+			<!--確認画面へボタン-->
+			<button>確認画面へ</button>
+		</form>
+
+	</main>
+
+	<!--フッター-->
+	<footer th:repace="footer"></footer>
+
+
+</body>
+
+</html>

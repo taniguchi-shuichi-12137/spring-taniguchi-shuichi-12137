@@ -23,6 +23,25 @@ public class Cart {
 	public List<Item> getItemList() {
 		return itemList;
 	}
+	
+	/**
+	 * 合計金額を算出して返却する処理
+	 * @return
+	 */
+	public Integer getTotal() {
+		//保存用変数totalを定義(初期値は0)
+		Integer total = 0;
+		
+		//itemListを拡張for文で回して、合計金額を算出
+		for(Item item : itemList) {
+			//商品の小計(価格と個数の掛け算)をtotalに足し込む
+			total += item.getPrice() * item.getQuantity();
+		}
+		
+		//算出した合計金額を返却
+		return total;
+	}
+	
 	//引数に指定した商品をカートに追加する
 	
 	public void addItem(Item item) {

@@ -11,37 +11,16 @@
 		<!--メイン-->
 		<main>
 			<!--カートの中身を表示するテーブル-->
-			<table border="1">
-				<!--ヘッダー行-->
-				<tr>
-					<th>商品ID</th>
-					<th>商品名</th>
-					<th>価格</th>
-					<th>個数</th>
-					<th>小計</th>
-					
-				</tr>
-				
-				<!--カートの中身-->
-				<tr th:each="cartItem : ${@cart.itemList}">
-					<td th:text="${cartItem.id}"></td>
-					<td th:text="${cartItem.name}"></td>
-					<td th:text="${cartItem.price}"></td>
-					<td th:text="${cartItem.quantity}"></td>
-					<td th:text="${cartItem.price * cartItem.quantity}"></td>
-				</tr>
-				
-				
-				
-				
-			</table>
+			<section th:replace="cartItem"></section>
+			
+			<a href="/order">
+				<button>注文する</button>
+			</a>
 		</main>
 		
 		
 		<!--フッター-->
-			<footer>
-				@株式会社アナザーウェア
-			</footer>
+	<footer th:repace="footer"></footer>
 
 </body>
 </html>
