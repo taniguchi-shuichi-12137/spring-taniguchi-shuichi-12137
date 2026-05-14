@@ -24,6 +24,12 @@
 				</form>
 			</td>
 			
+			<td>
+				<form th:action="|/items/${item.id}/delete|" method="post">		
+				<button>削除</button>
+				</form>
+			</td>
+			
 		</tr>
 		
 	</table>

@@ -8,6 +8,8 @@
 
 <body>
 	<h1>商品更新</h1>
+	
+	<form th:action="|/items/${item.id}/edit|" method="post">
 	<table border="55">
 		<tr>
 			<th>商品ID</th>
@@ -15,17 +17,27 @@
 		</tr>
 		<tr>
 			<th>カテゴリーID</th>
-			<td>[[${item.categoryId}]]</td>
+			<td>
+				<input type="text" name="categoryId" th:value="${item.categoryId}" min="1">
+			</td>
 		</tr>
 		<tr>
 			<th>商品名</th>
-			<td>[[${item.name}]]</td>
+			<td>
+				<input type="text" name="name" th:value="${item.name}">
+			</td>
 		</tr>
 		<tr>
 			<th>値段</th>
-			<td>[[${item.id}]]</td>
+			<td>
+				<input type="number" name="price" th:value="${item.price}">
+			</td>
 		</tr>
 	</table>
+
+	
+		<button>更新</button>
+	</form>
 </body>
 
 </html>

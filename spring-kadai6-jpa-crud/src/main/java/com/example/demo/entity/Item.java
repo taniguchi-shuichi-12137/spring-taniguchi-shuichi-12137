@@ -16,6 +16,7 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@Column(name = "category_id")
 	private Integer categoryId;
 	

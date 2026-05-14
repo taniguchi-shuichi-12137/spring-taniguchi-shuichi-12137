@@ -74,6 +74,56 @@ public class ItemController {
 
 		
 	}
+	@PostMapping("/items/{id}/edit")
+	public String update(
+			@PathVariable(name="id") Integer itemId,
+			@RequestParam(name = "categoryId", defaultValue = "") Integer categoryId,
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "price", defaultValue = "") Integer price) {
+		
+		Optional<Item> itemData = itemRepository.findById(itemId);
+
+		
+		if(itemData.isEmpty()) {
+			
+			return "redirect:/items";
+			
+		}
+		
+		Item item = itemData.get();
+				
+		item.setCategoryId(categoryId);
+		item.setName(name);
+		item.setPrice(price);
+		
+		itemRepository.save(item);
+
+
+		return "redirect:/items";
+		//なぜ/itemsなのか24行目で指定しているから
+		
+	}
+	
+	@PostMapping("/items/{id}/delete")
+	public String delete(@PathVariable(name="id") Integer itemId) {
+		
+		
+		Optional<Item> itemData = itemRepository.findById(itemId);
+		
+		
+		if(!itemData.isEmpty()) {
+			
+			
+			itemRepository.deleteById(itemId);
+			
+			
+			
+		}
+		return "redirect:/items";
+	}
+	
+	
+	
 	
 	
 

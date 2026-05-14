@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>カテゴリー登録</title>
+</head>
+<body>
+	<!-- 見出し -->
+	<h1>カテゴリー登録</h1>
+	
+	<!-- 入力値チェックのエラー文言 -->
+	<ul th:if="${errList}">
+		<li th:each="err : ${errList}" th:text="${err}"></li>
+	</ul>
+	
+	<!-- カテゴリー登録フォーム -->
+	<form action="/categories/add" method="post">
+		<table border="1">
+			<tr>
+				<th>カテゴリー名</th>
+				<td>
+					<input type="text" name="name" th:value="${name}" />
+				</td>
+			</tr>
+		</table>
+		
+		<!-- 登録ボタン -->
+		<button>登録</button>
+	</form>
+
+</body>
+</html>
